@@ -281,8 +281,6 @@
   // Cole aqui o URL do seu Google Apps Script (ver instruções no chat) para
   // receber automaticamente cada submissão numa Google Sheet / Excel.
   var CONFIG = {
-    GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxwwObSmCKi0xtoi5f3aAViaUHew5Ffm74gCo30uXFXi7n2Oz5kigLFnSCkys1DQC1D/exec", // ex: "https://script.google.com/macros/s/AKfycb.../exec"
-    CONSULTOR_NOME: "Elisabete Gaspar"
     GOOGLE_SCRIPT_URL: "", // ex: "https://script.google.com/macros/s/AKfycb.../exec"
     CONSULTOR_NOME: "Marta Salgado"
   };
@@ -683,7 +681,6 @@
 
     var submitBtn = el('button', {class:'btn-primary', style:'margin-top:6px;'}, [text('QUERO O RESULTADO DO MEU DIAGNÓSTICO →')]);
     submitBtn.addEventListener('click', function(){
-      if(!nomeInput.value || !consentBox.checked){
       if(!nomeInput.value || !whatsInput.value || !consentBox.checked){
         statusMsg.textContent = 'Preencha nome, WhatsApp e aceite os termos para continuar.';
         return;
@@ -776,9 +773,6 @@
     var wrap = el('div', {style:'display:flex;justify-content:center;width:100%;'});
     var card = el('div', {class:'card center-card'});
     card.appendChild(el('div', {class:'eyebrow', style:'justify-content:center'}, [text('DIAGNÓSTICO CONCLUÍDO')]));
-    card.appendChild(el('h2', {style:'font-size:24px;'}, [text('O seu resultado está a caminho.')]));
-    card.appendChild(el('div', {style:'font-family:Fraunces,serif;font-size:44px;color:var(--pine);margin:14px 0 4px;'}, [text('Obrigada!')]));
-    card.appendChild(el('p', {class:'lede', style:'margin-bottom:0'}, [text('Vai receber o feedback em breve, com a estratégia mais indicada para o seu caso.')]));
     card.appendChild(el('h2', {style:'font-size:24px;'}, [text('Obrigado. O seu resultado está a caminho.')]));
     card.appendChild(el('div', {style:'font-family:Fraunces,serif;font-size:44px;color:var(--pine);margin:14px 0 4px;'}, [text((state.lastScore||70)+'%')]));
     card.appendChild(el('p', {class:'lede', style:'margin-bottom:0'}, [text('Vai receber o relatório completo por WhatsApp nos próximos minutos, com a estratégia mais indicada para o seu caso.')]));
